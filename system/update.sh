@@ -25,7 +25,7 @@ function finish {
 	exit 0
 }
 function help {
-	echo "update: update [--help]
+	echo "update.sh: update.sh [--help]
 	Update the Linux system.
 	
 	Execute this script to update the Linux system.

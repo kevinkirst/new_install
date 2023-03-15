@@ -9,10 +9,12 @@ IFS=$'\n\t'
 
 # changelog
 #	v1.0 - main file used in configuring a new ubuntu install
-#		 - sources 'licencing.cfg'
+#		 - sources 'config.cfg', 'licencing.cfg'
+#		 - creates /var/log/new_install with /ok and /error subfolders
 #		 - 
 
 # =-= VARIABLES =-= #
+source ./lib/config.cfg
 source ./lib/licensing.cfg
 HI="sup"
 
