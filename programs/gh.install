@@ -1,0 +1,35 @@
+#!/bin/bash
+set -euo pipefail
+	# 'set [+-]e' -> exits if any command has a non zero exit status
+	# 'set [+-]u' -> exits if an undefined variable is referenced 
+		# requires ':-' to be placed after unbound variables ('${1}' becomes '${1:-}')
+	# 'set [+-]o pipefail' -> prevents error in a pipeline from being masked
+IFS=$'\n\t'
+	# Internal Field Separator -> set to 'new line' and 'tab'
+
+# changelog
+#	v1.0 - 
+#		 - 
+
+# =-= FUNCTIONS =-= #
+function finish {
+	#clean-up code goes here
+	exit 0
+}
+# =-= VARIABLES =-= #
+HI="sup"
+
+# =-= MAIN =-= #
+trap finish exit
+# vVv main script code vVv
+echo ${HI}
+
+# DRAFT
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+
+# DEPENDENCIES
+	# curl
