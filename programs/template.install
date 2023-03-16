@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# changelog
+#	v1.0 - 
+#		 - 
+
+# =-= VARIABLES =-= #
+
+# =-= FUNCTIONS =-= #
+
+# =-= MAIN =-= #
+# vVv main script code vVv
+# check if package is already installed
+source ${DIR_PROGRAMS}/chk_pkg_install.sh APPNAME
+# if it isn't, install it
+if [[ $? -eq 1 ]]; then
+	sudo apt install APPNAME -y
+fi
