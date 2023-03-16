@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -uo pipefail
 	# 'set [+-]e' -> exits if any command has a non zero exit status
 	# 'set [+-]u' -> exits if an undefined variable is referenced 
 		# requires ':-' to be placed after unbound variables ('${1}' becomes '${1:-}')
@@ -9,14 +9,25 @@ IFS=$'\n\t'
 
 # changelog
 #	v1.0 - main file used in configuring a new ubuntu install
+#		 - checks if inside /etc/new_install, if not cd to it
 #		 - sources 'config.cfg', 'licencing.cfg'
 #		 - creates /var/log/new_install with /ok and /error subfolders
 #		 - 
+#		 - 
+
+# if current directory isn't '/etc/new_install' cd to it
+if [[ ! "$PWD" = "/etc/new_install" ]]; then
+	cd "/etc/new_install"
+fi
 
 # =-= VARIABLES =-= #
+# check if config.cfg exists before importing it
+if [[ ! -e "./lib/config.cfg" ]]; then
+	echo "new_install: config.cfg not found."
+	exit 1
+fi
 source ./lib/config.cfg
-source ./lib/licensing.cfg
-HI="sup"
+HI=sup
 
 # =-= FUNCTIONS =-= #
 function finish {
@@ -27,4 +38,17 @@ function finish {
 # =-= MAIN =-= #
 trap finish exit
 # vVv main script code vVv
+# check if licensing.cfg exists before importing it
+if [[ ! -e "./lib/licensing.cfg" ]]; then
+	echo "new_install: licensing.cfg not found."
+	exit 1
+fi
+echo "new_install: for use in new Ubuntu installations. Configures the machine
+with my desired customizations and programs.
+"
+source ./lib/licensing.cfg
 echo "$HI"
+echo "$DIR_HOME"
+echo "$MY_DATE"
+echo "$DASH"
+echo "$YEAR"
