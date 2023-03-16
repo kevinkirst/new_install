@@ -7,14 +7,12 @@
 # =-= VARIABLES =-= #
 
 # =-= FUNCTIONS =-= #
-function finish {
-	#clean-up code goes here
-	echo "end"
-}
 
 # =-= MAIN =-= #
-trap finish exit
 # vVv main script code vVv
-# sudo apt install curl -y
-source ${DIR_PROGRAMS}/chk_pkg_install.sh
-echo "errao $?"
+# check if package is already installed
+source ${DIR_PROGRAMS}/chk_pkg_install.sh curl
+# if it isn't, install it
+if [[ $? -eq 1 ]]; then
+	sudo apt install curl -y
+fi

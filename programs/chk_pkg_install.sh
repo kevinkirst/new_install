@@ -5,9 +5,8 @@
 #		 - if running this script straight from terminal, 'source' it
 #		 - 
 
-# =-= VARIABLES =-= #
-
-# =-= FUNCTIONS =-= #
+# =-= USAGE =-= #
+# source ${DIR_PROGRAMS}/chk_pkg_install.sh PACKAGE_NAME
 
 # =-= MAIN =-= #
 # vVv main script code vVv

@@ -47,18 +47,8 @@ echo "new_install: for use in new Ubuntu installations. Configures the machine
 with my desired customizations and programs.
 "
 source ./lib/licensing.cfg
-echo "$HI"
-echo "$DIR_HOME"
-echo "$MY_DATE"
-echo "$DASH"
-echo "$YEAR"
-echo "$DIR_PROGRAMS"
-echo "$DIR_LIB"
-echo "$DIR_SYSTEM"
-echo
-echo "$DASH"
+
 echo
 set +u
 source $DIR_PROGRAMS/curl.install
 set -u
-echo "alo mae"
