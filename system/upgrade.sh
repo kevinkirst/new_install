@@ -8,11 +8,10 @@
 #		 - checks if script is being executed as root
 #		 - 
 
-# check if root
+# check if running as root, if not, prompts for root password
 if [[ ${EUID} -ne 0 ]]
 	then
-		echo "PLEASE RUN AS ROOT"
-		exit 1
+		exec sudo -- "$0" "$@"
 fi
 
 # =-= VARIABLES =-= #

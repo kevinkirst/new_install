@@ -15,12 +15,12 @@ IFS=$'\n\t'
 #		 - checks if script is being executed as root
 #		 - 
 
-# check if root, if not prompts for root password
+# =-= INITIAL CHECKS =-= #
+# check if running as root, if not, prompts for root password
 if [[ ${EUID} -ne 0 ]]
 	then
 		exec sudo -- "$0" "$@"
 fi
-
 # if current directory isn't '/etc/new_install' cd to it
 if [[ ! "$PWD" = "/etc/new_install" ]]; then
 	cd "/etc/new_install"
@@ -33,7 +33,6 @@ if [[ ! -e "./lib/config.cfg" ]]; then
 	exit 1
 fi
 source ./lib/config.cfg
-HI=sup
 
 # =-= FUNCTIONS =-= #
 function finish {
@@ -52,13 +51,16 @@ fi
 echo "new_install: for use in new Ubuntu installations. Configures the machine
 with my desired customizations and programs.
 "
-source ./lib/licensing.cfg
+source ./lib/licensing.cfg # copyright statement
+source $DIR_SYSTEM/update.sh
+source $DIR_SYSTEM/upgrade.sh
 
 # =-= TESTING ZONE =-= #
 echo
+echo "$DASH"
+echo "# =-= TESTING ZONE =-= #"
 set +u
 source $DIR_PROGRAMS/curl.install
-source $DIR_SYSTEM/update.sh
 set -u
 
 # mkdir for these guys:
@@ -66,5 +68,3 @@ set -u
 # DIR_LOG_ERROR="/var/log/new_install/error/"
 
 # update system before installing programs and in between installations
-
-#create upgrade.sh
