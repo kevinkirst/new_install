@@ -52,15 +52,16 @@ echo "new_install: for use in new Ubuntu installations. Configures the machine
 with my desired customizations and programs.
 "
 source ./lib/licensing.cfg # copyright statement
-source $DIR_SYSTEM/update.sh
-source $DIR_SYSTEM/upgrade.sh
+source "$DIR_SYSTEM"/mkdir.sh
+source "$DIR_SYSTEM"/update.sh
+source "$DIR_SYSTEM"/upgrade.sh
 
 # =-= TESTING ZONE =-= #
 echo
 echo "$DASH"
 echo "# =-= TESTING ZONE =-= #"
 set +u
-source $DIR_PROGRAMS/curl.install
+source "$DIR_PROGRAMS"/curl.install
 set -u
 
 # mkdir for these guys:

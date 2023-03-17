@@ -46,8 +46,8 @@ TIME: ${MY_TIME}
 if [[ "${1:-}" = "--help" ]]; then help; fi
 if ! [[ -z "${1:-}" ]]; then help; fi
 echo "upgrade.sh: upgrading..."
-header>> ${LOG_OK}
-header>> ${LOG_ERROR}
-apt-get upgrade -y >> ${LOG_OK} 2>> ${LOG_ERROR}
-echo>> ${LOG_OK}
-echo>> ${LOG_ERROR}
+header>> "$LOG_OK"
+header>> "$LOG_ERROR"
+apt-get upgrade -y >> "$LOG_OK" 2>> "$LOG_ERROR"
+echo>> "$LOG_OK"
+echo>> "$LOG_ERROR"

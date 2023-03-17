@@ -6,22 +6,21 @@
 #		 - 
 
 # =-= VARIABLES =-= #
-LOG_OK=${DIR_LOG_OK}update.log
-LOG_ERROR=${DIR_LOG_ERROR}update.log
 
 # =-= FUNCTIONS =-= #
-function header {
-	echo "${DASH}
-DATE: ${MY_DATE}
-TIME: ${MY_TIME}
-"
+function make_dir {
+	# if directory doesn't exist, creates it
+	if [[ ! -e "$1" ]]; then
+		mkdir "$1"
+	fi
+	# lists created/existing directory
+	echo "	-> $1"
 }
 
 # =-= MAIN =-= #
 # vVv main script code vVv
-echo "update.sh: updating..."
-header>> ${LOG_OK}
-header>> ${LOG_ERROR}
-apt-get update -y >> ${LOG_OK} 2>> ${LOG_ERROR}
-echo>> ${LOG_OK}
-echo>> ${LOG_ERROR}
+echo "mkdir.sh: list of created directories:
+"
+make_dir "$DIR_LOG_OK"
+make_dir "$DIR_LOG_ERROR"
+echo
