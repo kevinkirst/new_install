@@ -55,17 +55,32 @@ source ./lib/licensing.cfg # copyright statement
 source "$DIR_SYSTEM"/mkdir.sh
 source "$DIR_SYSTEM"/update.sh
 source "$DIR_SYSTEM"/upgrade.sh
+echo
+# installing packages
+cd "$DIR_PROGRAMS"
+shopt -s extglob #enable extended globbing
+for dir in !(*.sh|template.install); do
+	source "${dir}"
+	# update and upgrade in between each package installation
+	source "$DIR_SYSTEM"/update.sh
+	source "$DIR_SYSTEM"/upgrade.sh
+	echo
+done
+shopt -u extglob #disable extended globbing
+cd "$DIR_HOME"
 
 # =-= TESTING ZONE =-= #
-echo
 echo "$DASH"
 echo "# =-= TESTING ZONE =-= #"
 set +u
-source "$DIR_PROGRAMS"/curl.install
+# source "$DIR_PROGRAMS"/curl.install
+
 set -u
 
 # update system before installing programs and in between installations
 
-# created crontabs
+# create crontabs
 
 # chmod +x to everyone how?
+
+# do something with ~/.bash_profile and ~/.bashrc ??

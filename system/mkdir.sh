@@ -26,8 +26,7 @@ function make_dir {
 
 # =-= MAIN =-= #
 # vVv main script code vVv
-echo "mkdir.sh: list of created directories:
-"
+echo "mkdir.sh: list of created directories:"
 make_dir "$DIR_LOG_OK"
 make_dir "$DIR_LOG_ERROR"
 echo
