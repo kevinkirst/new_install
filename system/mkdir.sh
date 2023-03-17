@@ -30,5 +30,4 @@ echo "mkdir.sh: list of created directories:
 "
 make_dir "$DIR_LOG_OK"
 make_dir "$DIR_LOG_ERROR"
-make_dir "./test"
 echo
