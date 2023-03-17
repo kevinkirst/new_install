@@ -64,10 +64,6 @@ set +u
 source "$DIR_PROGRAMS"/curl.install
 set -u
 
-# mkdir for these guys:
-# DIR_LOG_OK="/var/log/new_install/ok/"
-# DIR_LOG_ERROR="/var/log/new_install/error/"
-
 # update system before installing programs and in between installations
 
 # created crontabs
