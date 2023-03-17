@@ -68,3 +68,7 @@ set -u
 # DIR_LOG_ERROR="/var/log/new_install/error/"
 
 # update system before installing programs and in between installations
+
+# created crontabs
+
+# chmod +x to everyone how?
