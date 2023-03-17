@@ -12,8 +12,14 @@ IFS=$'\n\t'
 #		 - checks if inside /etc/new_install, if not cd to it
 #		 - sources 'config.cfg', 'licencing.cfg'
 #		 - creates /var/log/new_install with /ok and /error subfolders
+#		 - checks if script is being executed as root
 #		 - 
-#		 - 
+
+# check if root, if not prompts for root password
+if [[ ${EUID} -ne 0 ]]
+	then
+		exec sudo -- "$0" "$@"
+fi
 
 # if current directory isn't '/etc/new_install' cd to it
 if [[ ! "$PWD" = "/etc/new_install" ]]; then
@@ -52,6 +58,7 @@ source ./lib/licensing.cfg
 echo
 set +u
 source $DIR_PROGRAMS/curl.install
+source $DIR_SYSTEM/update.sh
 set -u
 
 # mkdir for these guys:

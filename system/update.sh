@@ -5,7 +5,7 @@
 #		 - created help function
 #		 - logs successfull and error operations to separate folders
 #		 - checks if variables from config file are set, this is so the script can be used on its own instead of only being usable by sourcing through 'new_install'
-#		 - checks if script is being run as root
+#		 - checks if script is being executed as root
 #		 - 
 
 # check if root
@@ -46,6 +46,7 @@ TIME: ${MY_TIME}
 # vVv main script code vVv
 if [[ "${1:-}" = "--help" ]]; then help; fi
 if ! [[ -z "${1:-}" ]]; then help; fi
+echo "update.sh: updating..."
 header>> ${LOG_OK}
 header>> ${LOG_ERROR}
 apt-get update -y >> ${LOG_OK} 2>> ${LOG_ERROR}
