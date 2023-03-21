@@ -29,7 +29,7 @@ TIME: ${MY_TIME}
 # vVv main script code vVv
 # if initial parameter is empty, errors out
 if [[ -z "$1" ]]; then 
-	echo "chk_install: no package name was provided."
+	echo "chk_pkg_install.sh: no package name was provided."
 	return 2
 fi
 # check if pkg is installed
@@ -39,6 +39,7 @@ fi
 # if ! hash "$1" 2>/dev/null
 if ! dpkg -s "$1" >> "$TMP_FILE" 2> /dev/null
 then
+	echo "chk_pkg_install.sh: installing $1"
 	return 1
 else
 	header>> "$LOG_OK"
@@ -46,6 +47,6 @@ else
 	echo>> "$LOG_OK"
 	# clearing temp file so it's empty for the next package log
 	cat /dev/null > "$TMP_FILE"
-	echo "chk_install: $1 was already installed on this machine."
+	echo "chk_pkg_install.sh: $1 was already installed on this machine."
 	return 0
 fi

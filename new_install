@@ -36,7 +36,9 @@ source ./lib/config.cfg
 
 # =-= FUNCTIONS =-= #
 function finish {
-	#clean-up code goes here
+	# clean-up code goes here
+	# deletting temp file(s)
+	rm -r /tmp/new_install-*
 	exit 0
 }
 
