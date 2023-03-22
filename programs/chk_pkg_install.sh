@@ -43,6 +43,7 @@ then
 	return 1
 else
 	header>> "$LOG_OK"
+	# sending contents of temp file to log file
 	cat "$TMP_FILE">> "$LOG_OK"
 	echo>> "$LOG_OK"
 	# clearing temp file so it's empty for the next package log
