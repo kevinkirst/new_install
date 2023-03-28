@@ -14,7 +14,7 @@
 function make_dir {
 	# if directory doesn't exist, creates it
 	if [[ ! -d "$1" ]]; then
-		mkdir "$1"
+		mkdir -p "$1"
 	fi
 	# changing owner (user:group)
 	chown "$MYSELF":"$MYSELF" $1
