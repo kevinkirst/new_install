@@ -13,6 +13,7 @@ IFS=$'\n\t'
 #		 - sources 'config.cfg', 'licencing.cfg'
 #		 - creates /var/log/new_install with /ok and /error subfolders
 #		 - checks if script is being executed as root
+#		 - updates system before installing packages and in between each package installation
 #		 - 
 
 # =-= INITIAL CHECKS =-= #
@@ -61,6 +62,7 @@ echo
 # installing packages
 cd "$DIR_PROGRAMS"
 shopt -s extglob #enable extended globbing
+# cycle through all '.install' files inside './programs'
 for dir in !(*.sh|template.install); do
 	source "${dir}"
 	# update and upgrade in between each package installation
@@ -75,11 +77,9 @@ cd "$DIR_HOME"
 echo "$DASH"
 echo "# =-= TESTING ZONE =-= #"
 set +u
-# source "$DIR_PROGRAMS"/curl.install
 
 set -u
 
-# update system before installing programs and in between installations
 
 # create crontabs
 
