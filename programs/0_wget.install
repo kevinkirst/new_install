@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # changelog
-#	v1.0 - needed for gh
-#		 - needed for vscode
+#	v1.0 - needed for vscode
 #		 - 
 
 # =-= VARIABLES =-= #
-PKG_NAME=curl
+PKG_NAME=wget
 
 # =-= FUNCTIONS =-= #
 function header {
@@ -18,7 +17,7 @@ TIME: ${MY_TIME}
 
 # =-= MAIN =-= #
 # vVv main script code vVv
-# check if package is already installed, if it is this also logs the installed package 
+# check if package is already installed
 source ${DIR_PROGRAMS}/chk_pkg_install.sh "$PKG_NAME"
 # if it isn't, install it
 if [[ $? -eq 1 ]]; then
