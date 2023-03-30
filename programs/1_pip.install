@@ -2,7 +2,7 @@
 
 # changelog
 #	v1.0 - depends on python
-#		 - needed for ansible
+#		 - needed for ansible?
 #		 - check version with "python3 -m pip -V"
 #		 - 
 
