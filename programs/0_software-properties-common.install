@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # changelog
-#	v1.0 - needed for ansible?
-#		 - needed for pip
+#	v1.0 - needed for ansible
 #		 - 
 
 # =-= VARIABLES =-= #
-PKG_NAME=python-is-python3
+PKG_NAME=software-properties-common
 
 # =-= FUNCTIONS =-= #
 function header {
@@ -23,6 +22,7 @@ source ${DIR_PROGRAMS}/chk_pkg_install.sh "$PKG_NAME"
 # if it isn't, install it
 if [[ $? -eq 1 ]]; then
 	sudo apt install "$PKG_NAME" -y
+	sudo add-apt-repository --yes ppa:ansible/ansible
 	# packages that weren't installed now are, so call 'chk_pkg_install' again in order to log the installation
 	source ${DIR_PROGRAMS}/chk_pkg_install.sh "$PKG_NAME"
 fi

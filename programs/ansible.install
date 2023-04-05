@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # changelog
-#	v1.0 - needed for ansible?
-#		 - needed for pip
+#	v1.0 - 
 #		 - 
 
 # =-= VARIABLES =-= #
-PKG_NAME=python-is-python3
+PKG_NAME=ansible
 
 # =-= FUNCTIONS =-= #
 function header {
