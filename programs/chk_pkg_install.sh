@@ -15,7 +15,7 @@ if [ -z "${DIR_LOG_OK+x}" ]; then
 	cd "/etc/new_install"
 	source ./lib/config.cfg
 fi
-LOG_OK=${DIR_LOG_OK}chk_pkg_install.log
+LOG_OK=${DIR_LOG_OK}/chk_pkg_install.log
 
 # =-= FUNCTIONS =-= #
 function header {
