@@ -20,8 +20,8 @@ if [ -z "${DIR_LOG_OK+x}" ]; then
 	cd "/etc/new_install"
 	source ./lib/config.cfg
 fi
-LOG_OK=${DIR_LOG_OK}upgrade.log
-LOG_ERROR=${DIR_LOG_ERROR}upgrade.log
+LOG_OK=${DIR_LOG_OK}/upgrade.log
+LOG_ERROR=${DIR_LOG_ERROR}/upgrade.log
 
 # =-= FUNCTIONS =-= #
 function help {
