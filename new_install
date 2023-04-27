@@ -64,7 +64,7 @@ echo
 cd "$DIR_PROGRAMS"
 shopt -s extglob #enable extended globbing
 # cycle through all '.install' files inside './programs'
-for dir in !(*.sh|template.install); do
+for dir in !(*.sh|*.gpg|template.install); do
 	source "${dir}"
 	# update and upgrade in between each package installation
 	source "$DIR_SYSTEM"/update.sh
