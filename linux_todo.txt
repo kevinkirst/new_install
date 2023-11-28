@@ -2,10 +2,10 @@
 		TO DO
 ======================
 
-- add oiw to new_install
-	- oiw inside /usr/bin
-- add oiw config files to new_install
-	- export ~/.config/autostart *.desktop files
+DONE - add oiw to new_install
+	- script to copy oiw to /usr/bin
+DONE - add oiw config files to new_install
+	- script to export *.desktop files to ~/.config/autostart 
 - create script to auto config oiw
 - export touchpad configuration?
 
