@@ -17,18 +17,22 @@ IFS=$'\n\t'
 # FIX "line 20: $1: unbound variable" LATER TO REMOVE THIS LINE!!!
 set +u
 
-USAGE="USAGE: $(basename $0) [-r] workspace(1,2,..) command \n
-    LaunchHere launches COMMAND on specific workspace. \
-    -r option returns to current workspace"
-[ -z "$1" ] && echo $USAGE && exit 0
+function usage {
+	echo "USAGE: $(basename $0) [-r] workspace(1,2,...) command
+	oiw: Open In Workspace launches [command] on specific workspace.
+	
+	Options:
+	-r returns to current workspace"
+}
+
+[ -z "$1" ] && usage && exit 0
 ISRETURN=$(false); [ "$1" = "-r" ] && ISRETURN=true && shift;  
-WRKSPC=$1;[ -z "$WRKSPC" ] && echo $USAGE && exit 0
+WRKSPC=$1;[ -z "$WRKSPC" ] && usage && exit 0
 WSN=$(expr $WRKSPC - 1)  ## wmctrl starts with 0 as first wrkspc
-shift; CMD="$*"; [ -z "$CMD" ] && echo $USAGE && exit 0
+shift; CMD="$*"; [ -z "$CMD" ] && usage && exit 0
 
 WM=$(which wmctrl);[ -z "$WM" ] && echo MISSING wmctrl && exit 1
 CURRENT=$(wmctrl -d | grep '*' | cut -c1)
-
 
 # Switch to desired workspace
 $WM -s $WSN

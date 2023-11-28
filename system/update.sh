@@ -7,47 +7,41 @@
 #		 - checks if variables from config file are set, this is so the script can be used on its own instead of only being usable by sourcing through 'new_install'
 #		 - checks if script is being executed as root
 #		 - 
-
-# check if running as root, if not, prompts for root password
-if [[ ${EUID} -ne 0 ]]
-	then
-		exec sudo -- "$0" "$@"
-fi
+# rearranged some stuff for more basic functionality
+# sometimes the simpler answer is the right answer
 
 # =-= VARIABLES =-= #
-# check if config.cfg variable is set, sources config.cfg if not
-if [ -z "${DIR_LOG_OK+x}" ]; then 
-	cd "/etc/new_install"
-	source ./lib/config.cfg
-fi
 LOG_OK=${DIR_LOG_OK}/update.log
 LOG_ERROR=${DIR_LOG_ERROR}/update.log
 
 # =-= FUNCTIONS =-= #
-function help {
-	echo "update.sh: update.sh [--help]
-	Update the Linux system.
-	
-	Execute this script to update the Linux system.
-	
-	Options:
-		--help		print the help page"
-	exit 0
-}
+# ease of reading for the logs
 function header {
 	echo "${DASH}
-DATE: ${MY_DATE}
+DATE: ${MY_DATE}"$LOG_OK" 2>> "$LOG_ERROR"
 TIME: ${MY_TIME}
 "
 }
+# success log
+function log_ok {
+	header >> $LOG_OK
+	cat $FILE_TMP >> $LOG_OK
+	# emptying $FILE_TMP
+	echo>> $FILE_TMP
+	echo>> $LOG_OK
+}
+# error log
+function log_error {
+	header >> $LOG_ERROR
+
+	echo>> $LOG_ERROR
+}
 
 # =-= MAIN =-= #
-# vVv main script code vVv
-if [[ "${1:-}" = "--help" ]]; then help; fi
-if ! [[ -z "${1:-}" ]]; then help; fi
 echo "update.sh: updating..."
-header>> "$LOG_OK"
-header>> "$LOG_ERROR"
-apt-get update -y >> "$LOG_OK" 2>> "$LOG_ERROR"
-echo>> "$LOG_OK"
-echo>> "$LOG_ERROR"
+apt-get update -y &>> "$FILE_TMP"
+if [[ $? -eq 0 ]]; then
+	log_ok
+else
+	log_error
+fi

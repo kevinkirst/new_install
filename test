@@ -13,7 +13,7 @@ IFS=$'\n\t'
 #		 - 
 
 # =-= VARIABLES =-= #
-MODULE=$(basename $0)
+source ./base.sh
 HI="sup"
 
 # =-= FUNCTIONS =-= #
