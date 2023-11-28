@@ -8,6 +8,8 @@ DONE - add oiw config files to new_install
 	- script to export *.desktop files to ~/.config/autostart 
 - create script to auto config oiw
 - export touchpad configuration?
+- create crontabs
+- chmod +x necessary files
 
 =-=-=-=-=-=-=-=-=-=
 	PROGRAMS

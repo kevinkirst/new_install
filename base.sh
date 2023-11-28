@@ -16,12 +16,17 @@ IFS=$'\n\t'
 HI="sup"
 
 # =-= FUNCTIONS =-= #
-function finish {
-	#clean-up code goes here
-	echo "end"
+function help {
+	echo "$(basename $0): $(basename $0) [--help]
+	[description]
+	
+	Options:
+		--help		print the help page"
+	exit 0
 }
 
 # =-= MAIN =-= #
-trap finish exit
+if [[ "${1:-}" = "--help" ]]; then help; fi
+if ! [[ -z "${1:-}" ]]; then help; fi
 # vVv main script code vVv
 echo "$HI"
