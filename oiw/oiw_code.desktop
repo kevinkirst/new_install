@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Exec=oiw 3 code
+NoDisplay=false
+Hidden=false
+Name=Open In Workspace - code
+Comment=Open code in workspace 3 - coding
+X-GNOME-Autostart-enabled=true

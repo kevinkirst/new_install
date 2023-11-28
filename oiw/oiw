@@ -1,0 +1,42 @@
+#!/bin/bash
+## Author: B.A. Computer Services www.ba-computer.com
+## Purpose: Frontend to launch anything on a specific desktop/workspace.
+##  lh is short for LaunchHere
+
+# modified by: kevinkirst
+# oiw: Open In Workspace
+
+set -uo pipefail
+	# 'set [+-]e' -> exits if any command has a non zero exit status
+	# 'set [+-]u' -> exits if an undefined variable is referenced 
+		# requires ':-' to be placed after unbound variables ('${1}' becomes '${1:-}')
+	# 'set [+-]o pipefail' -> prevents error in a pipeline from being masked
+IFS=$'\n\t'
+	# Internal Field Separator -> set to 'new line' and 'tab'
+
+# FIX "line 20: $1: unbound variable" LATER TO REMOVE THIS LINE!!!
+set +u
+
+USAGE="USAGE: $(basename $0) [-r] workspace(1,2,..) command \n
+    LaunchHere launches COMMAND on specific workspace. \
+    -r option returns to current workspace"
+[ -z "$1" ] && echo $USAGE && exit 0
+ISRETURN=$(false); [ "$1" = "-r" ] && ISRETURN=true && shift;  
+WRKSPC=$1;[ -z "$WRKSPC" ] && echo $USAGE && exit 0
+WSN=$(expr $WRKSPC - 1)  ## wmctrl starts with 0 as first wrkspc
+shift; CMD="$*"; [ -z "$CMD" ] && echo $USAGE && exit 0
+
+WM=$(which wmctrl);[ -z "$WM" ] && echo MISSING wmctrl && exit 1
+CURRENT=$(wmctrl -d | grep '*' | cut -c1)
+
+
+# Switch to desired workspace
+$WM -s $WSN
+$CMD &
+PID=$!
+echo Executed $CMD on workspace $WRKSPC,  PID=$PID
+sleep 3
+
+# Return to CURRENT workspace ?
+# [ $ISRETURN ] && echo TRUE || echo FALSE
+[ $ISRETURN ] && $WM -s $CURRENT

@@ -1,0 +1,19 @@
+======================
+		TO DO
+======================
+
+- add oiw to new_install
+	- oiw inside /usr/bin
+- add oiw config files to new_install
+	- export ~/.config/autostart *.desktop files
+- create script to auto config oiw
+- export touchpad configuration?
+
+=-=-=-=-=-=-=-=-=-=
+	PROGRAMS
+=-=-=-=-=-=-=-=-=-=
+git
+gh
+code
+virtualbox + extension
+oiw - open in workspace
