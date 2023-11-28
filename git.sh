@@ -8,7 +8,7 @@
 
 # =-= VARIABLES =-= #
 COMMENT=$@
-REPO=new_install
+REPO=main
 BRANCH=main
 
 # =-= FUNCTIONS =-= #
