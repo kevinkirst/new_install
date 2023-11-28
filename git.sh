@@ -8,7 +8,7 @@
 
 # =-= VARIABLES =-= #
 COMMENT=$@
-REPO=main
+REPO=origin
 BRANCH=main
 
 # =-= FUNCTIONS =-= #
