@@ -23,8 +23,8 @@ if [[ ${EUID} -ne 0 ]]
 		exec sudo -- "$0" "$@"
 fi
 # if current directory isn't '/etc/new_install' cd to it
-if [[ ! "$PWD" = "/etc/new_install" ]]; then
-	cd "/etc/new_install"
+if [[ ! "$PWD" = "${HOME}/bin/new_install" ]]; then
+	cd "${HOME}/bin/new_install"
 fi
 
 # =-= VARIABLES =-= #
@@ -39,7 +39,7 @@ source ./lib/config.cfg
 function finish {
 	# clean-up code goes here
 	# deletting temp file(s)
-	rm -r /tmp/new_install-*
+	rm -r /tmp/${NAME}-*
 	exit 0
 }
 
@@ -48,10 +48,10 @@ trap finish exit
 # vVv main script code vVv
 # check if licensing.cfg exists before importing it
 if [[ ! -e "./lib/licensing.cfg" ]]; then
-	echo "new_install: licensing.cfg not found."
+	echo "${NAME}: licensing.cfg not found."
 	exit 1
 fi
-echo "new_install: for use in new Debian based Linux installations. Configures
+echo "${NAME}: for use in new Debian based Linux installations. Configures
 the machine with my desired customizations and programs.
 "
 

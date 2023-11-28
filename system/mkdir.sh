@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# author: kevinkirst
 # changelog
 #	v1.0 - script for automatic folder creation
 #		 - to be sourced by new_install
@@ -20,8 +20,12 @@ function make_dir {
 	chown "$MYSELF":"$MYSELF" $1
 	# changing permission for created/existing directory
 	chmod 775 $1
-	# lists created/existing directory
-	echo "	-> $1"
+	# lists created/existing directory if created successfully
+	if [[ -d "$1" ]]; then
+		echo "	-> $1"
+	else
+		echo "${NAME}: unable to create $1"
+	fi
 }
 
 # =-= MAIN =-= #
