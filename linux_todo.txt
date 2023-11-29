@@ -10,6 +10,37 @@ DONE - add oiw config files to new_install
 - export touchpad configuration?
 - create crontabs
 - chmod +x necessary files
+- system configurations
+	- colours
+	- workspace names
+	- 
+- libreoffice configuration
+
+=-= BRIGHTNESS =-=
+- nano /etc/default/grub
+# swap line:
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+	# for:
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=video"
+		# this fixes slider on brightness pannel but F11 & F12 still not working
+		# creates '/sys/class/backlight/acpi_video0' if it doesn't exist
+# inside '/sys/class/backlight/acpi_video0'
+	# changing group of 'brightness' from root to kirst
+	# this file contains a number ranging from 0-100 representing brightness percentage
+	- sudo chgrp -v kirst brightness
+	# adding write permissions to 'kirst' group for 'brightness' file
+	- sudo chmod 664 brightness
+
+	# ALL of this so that:
+	- $ echo 50 > /sys/class/backlight/acpi_video0/brightness
+	# will change the brightness to 50%...now to automate it and make a custom command for it
+		# it shall be called 'sun'
+# script to make all these changes and copy sun to /usr/bin
+
+
+=-= ROOT PASSWORD =-=
+# by default mint has no root password, set it up using preferably repeating your own password
+- sudo passwd
 
 =-=-=-=-=-=-=-=-=-=
 	PROGRAMS
@@ -19,3 +50,4 @@ gh
 code
 virtualbox + extension
 oiw - open in workspace
+vlc

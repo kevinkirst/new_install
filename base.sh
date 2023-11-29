@@ -27,7 +27,10 @@ function help {
 }
 
 # =-= MAIN =-= #
+# if first parameter is '--help' show help
 if [[ "${1:-}" = "--help" ]]; then help; fi
+# with '!' - if ANY parameter is passed, show help
+# without '!' - if NO parameter is passed, show help
 if ! [[ -z "${1:-}" ]]; then help; fi
 # vVv main script code vVv
 echo "$HI"
