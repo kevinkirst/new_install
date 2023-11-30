@@ -14,7 +14,10 @@ DONE - add oiw config files to new_install
 	- colours
 	- workspace names
 	- 
-- libreoffice configuration
+- export libreoffice configuration
+
+- test putting .bash_aliases inside /etc/profile (global availability)
+	- https://unix.stackexchange.com/questions/104727/add-a-path-in-path-globally-for-every-user
 
 =-= BRIGHTNESS =-=
 - nano /etc/default/grub
@@ -35,6 +38,13 @@ DONE - add oiw config files to new_install
 	- $ echo 50 > /sys/class/backlight/acpi_video0/brightness
 	# will change the brightness to 50%...now to automate it and make a custom command for it
 		# it shall be called 'sun'
+DONE - # create udev rule and copy it to /lib/udev/rules.d/
+reload udev (or reboot machine)
+	- sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm trigger
+# test udev rule
+	# applying udev rules somehow broke power management brightness interface...like wtf???
+	# after rebooting once more it came back to normal...ok like wtf again, but in a good way??
+
 # script to make all these changes and copy sun to /usr/bin
 
 
