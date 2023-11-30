@@ -52,6 +52,8 @@ function help {
 		add write permissions to [user_group] group for 'brightness' file
 			$ chmod 664 brightness
 		copy '93-sun.rules' to /lib/udev/rules.d/
+		run commands bellow to reload udev (or reboot machine)
+			$ sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm trigger
 
 		pre-requisites have to be done only once, most likely using sudo.
 "

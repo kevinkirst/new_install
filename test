@@ -13,7 +13,8 @@ IFS=$'\n\t'
 #		 - 
 
 # =-= VARIABLES =-= #
-source ./base.sh
+MODULE=$(basename $0)
+source ./lib/config.cfg
 HI="sup"
 
 # =-= FUNCTIONS =-= #
@@ -30,6 +31,6 @@ function help {
 if [[ "${1:-}" = "--help" ]]; then help; fi
 if ! [[ -z "${1:-}" ]]; then help; fi
 # vVv main script code vVv
-echo "$HI"
-echo $0
+echo -e $CLR_GREEN "$HI" $CLR_DEFAULT
+echo -e $CLR_RED $0 $CLR_DEFAULT
 echo $MODULE
