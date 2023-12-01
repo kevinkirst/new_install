@@ -16,6 +16,7 @@ DONE - add oiw config files to new_install
 	- 
 - export libreoffice configuration
 DONE - $CLR_* var inside config for text colour editing
+DONE - copy .files to ./dotfiles
 
 - test putting .bash_aliases inside /etc/profile (global availability)
 	- https://unix.stackexchange.com/questions/104727/add-a-path-in-path-globally-for-every-user

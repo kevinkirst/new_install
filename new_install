@@ -34,6 +34,7 @@ if [[ ! -e "./lib/config.cfg" ]]; then
 	exit 1
 fi
 source ./lib/config.cfg
+echo -e "${CLR_GREEN}${NAME}: config.cfg found.${CLR_DEFAULT}"
 
 # =-= FUNCTIONS =-= #
 function finish {
@@ -48,7 +49,7 @@ trap finish exit
 # vVv main script code vVv
 # check if licensing.cfg exists before importing it
 if [[ ! -e "./lib/licensing.cfg" ]]; then
-	echo "${NAME}: licensing.cfg not found."
+	echo -e "${CLR_RED}${NAME}: licensing.cfg not found.${CLR_DEFAULT}"
 	exit 1
 fi
 echo "${NAME}: for use in new Debian based Linux installations. Configures

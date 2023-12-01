@@ -74,3 +74,24 @@ fi
 if [[ $(cut -d '/' -f 2 <<< $PATH) != "home" ]]; then
 	PATH="$HOME/bin:$PATH"
 fi
+
+# =-= COLOURS =-= #
+# to interpret colours use 'echo -e [colour] text $CLR_DEFAULT
+# always use $CLR_DEFAULT at the end of the line
+CLR_DEFAULT='\e[0m'
+CLR_BLACK='\e[0;30m'
+CLR_GREY='\e[1;30m'
+CLR_LIGHT_GREY='\e[0;37m'
+CLR_WHITE='\e[1;37m'
+CLR_BROWN='\e[0;33m'
+CLR_RED='\e[0;31m'
+CLR_LIGHT_RED='\e[1;31m'
+CLR_YELLOW='\e[1;33m'
+CLR_GREEN='\e[0;32m'
+CLR_LIGHT_GREEN='\e[1;32m'
+CLR_CYAN='\e[0;36m'
+CLR_LIGHT_CYAN='\e[1;36m'
+CLR_BLUE='\e[0;34m'
+CLR_LIGHT_BLUE='\e[1;34m'
+CLR_PURPLE='\e[0;35m'
+CLR_LIGHT_PURPLE='\e[1;35m'
