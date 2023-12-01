@@ -34,3 +34,6 @@ if ! [[ -z "${1:-}" ]]; then help; fi
 echo -e $CLR_GREEN "$HI" $CLR_DEFAULT
 echo -e $CLR_RED $0 $CLR_DEFAULT
 echo $MODULE
+echo BASH_SOURCE: ${BASH_SOURCE}
+echo "0: $0"
+echo pwd: $PWD

@@ -22,15 +22,12 @@ if [[ ${EUID} -ne 0 ]]
 	then
 		exec sudo -- "$0" "$@"
 fi
-# if current directory isn't '/etc/new_install' cd to it
-if [[ ! "$PWD" = "${HOME}/bin/new_install" ]]; then
-	cd "${HOME}/bin/new_install"
-fi
 
 # =-= VARIABLES =-= #
 # check if config.cfg exists before importing it
 if [[ ! -e "./lib/config.cfg" ]]; then
-	echo "new_install: config.cfg not found."
+	echo "new_install: config.cfg not found.
+	Please 'cd' into the bundle folder before running this script."
 	exit 1
 fi
 source ./lib/config.cfg
