@@ -31,7 +31,6 @@ if [[ ! -e "./lib/config.cfg" ]]; then
 	exit 1
 fi
 source ./lib/config.cfg
-echo -e "${CLR_GREEN}${NAME}: config.cfg found.${CLR_DEFAULT}"
 
 # =-= FUNCTIONS =-= #
 function finish {
@@ -55,6 +54,9 @@ the machine with my desired customizations and programs.
 
 source ./lib/licensing.cfg # copyright statement
 source "$DIR_SYSTEM"/mkdir.sh
+
+exit 0
+
 source "$DIR_SYSTEM"/update.sh
 source "$DIR_SYSTEM"/upgrade.sh
 echo

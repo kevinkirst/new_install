@@ -9,12 +9,15 @@
 #		 - 
 
 # =-= VARIABLES =-= #
+# directory status for reporting defaults to 'already existed - skipped'
+DIR_STATUS="${CLR_YELLOW}already existed - skipped${CLR_DEFAULT}"
 
 # =-= FUNCTIONS =-= #
 function make_dir {
 	# if directory doesn't exist, creates it
 	if [[ ! -d "$1" ]]; then
 		mkdir -p "$1"
+		DIR_STATUS="${CLR_GREEN}created${CLR_DEFAULT}"
 	fi
 	# changing owner (user:group)
 	chown "$MYSELF":"$MYSELF" $1
@@ -22,9 +25,9 @@ function make_dir {
 	chmod 775 $1
 	# lists created/existing directory if created successfully
 	if [[ -d "$1" ]]; then
-		echo "	-> $1"
+		echo -e "	-> $1 - ${DIR_STATUS}"
 	else
-		echo "${NAME}: unable to create $1"
+		echo -e "${CLR_RED}${NAME}: unable to create $1 ${CLR_DEFAULT}"
 	fi
 }
 

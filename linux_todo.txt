@@ -2,6 +2,8 @@
 		TO DO
 ======================
 
+- chmod +x necessary files via new_install
+	- go to the directory and execute 'chmod +x ./*'
 DONE - add oiw to new_install
 	- script to copy oiw to /usr/bin
 DONE - add oiw config files to new_install
@@ -9,7 +11,6 @@ DONE - add oiw config files to new_install
 - create script to auto config oiw
 - export touchpad configuration?
 - create crontabs
-- chmod +x necessary files
 - system configurations
 	- colours
 	- workspace names
