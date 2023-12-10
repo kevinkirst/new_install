@@ -51,14 +51,23 @@ fi
 echo "${NAME}: for use in new Debian based Linux installations. Configures
 the machine with my desired customizations and programs.
 "
+# chmod +x necessary bundle files
+cd "$DIR_PROGRAMS"
+while IFS= read -r -d '' file; do
+	echo -e ${CLR_CYAN}"$file"${CLR_DEFAULT}
+done < <(find . -type f -name '*.install' -print0)
+# for pkg in (*.install|*.sh); do
+# 	chmod 775 ${pkg}
+# 	echo -e ${CLR_GREEN}${pkg}${CLR_DEFAULT}
+# done
 
-source ./lib/licensing.cfg # copyright statement
-source "$DIR_SYSTEM"/mkdir.sh
+source $DIR_HOME/lib/licensing.cfg # copyright statement
+source $DIR_SYSTEM/mkdir.sh
 
-exit 0
+source $PAUSE
 
-source "$DIR_SYSTEM"/update.sh
-source "$DIR_SYSTEM"/upgrade.sh
+source $DIR_SYSTEM/update.sh
+source $DIR_SYSTEM/upgrade.sh
 echo
 # installing packages
 cd "$DIR_PROGRAMS"

@@ -9,7 +9,7 @@ DONE - add oiw to new_install
 DONE - add oiw config files to new_install
 	- script to export *.desktop files to ~/.config/autostart 
 - create script to auto config oiw
-- export touchpad configuration?
+unlikely :/ - export touchpad configuration?
 - create crontabs
 - system configurations
 	- colours
@@ -18,6 +18,7 @@ DONE - add oiw config files to new_install
 - export libreoffice configuration
 DONE - $CLR_* var inside config for text colour editing
 DONE - copy .files to ./dotfiles
+- create vagrant.install
 
 - test putting .bash_aliases inside /etc/profile (global availability)
 	- https://unix.stackexchange.com/questions/104727/add-a-path-in-path-globally-for-every-user
