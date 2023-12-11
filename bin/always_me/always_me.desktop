@@ -1,0 +1,11 @@
+~/.config/autostart
+
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Exec=bash /home/kirst/bin/always_me
+NoDisplay=false
+Hidden=false
+Name=bash
+Comment=bash script at start-up test
+X-GNOME-Autostart-enabled=true

@@ -1,0 +1,62 @@
+======================
+		TO DO
+======================
+
+- chmod +x necessary files via new_install
+	- go to the directory and execute 'chmod +x ./*'
+DONE - add oiw to new_install
+	- script to copy oiw to /usr/bin
+DONE - add oiw config files to new_install
+	- script to export *.desktop files to ~/.config/autostart 
+- create script to auto config oiw
+unlikely :/ - export touchpad configuration?
+- create crontabs
+- system configurations
+	- colours
+	- workspace names
+	- 
+- export libreoffice configuration
+DONE - $CLR_* var inside config for text colour editing
+DONE - copy .files to ./dotfiles
+- create vagrant.install
+
+- test putting .bash_aliases inside /etc/profile (global availability)
+	- https://unix.stackexchange.com/questions/104727/add-a-path-in-path-globally-for-every-user
+
+=-= BRIGHTNESS =-=
+- nano /etc/default/grub
+# swap line:
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+	# for:
+	GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=video"
+		# this fixes slider on brightness pannel but F11 & F12 still not working
+		# creates '/sys/class/backlight/acpi_video0' if it doesn't exist
+# inside '/sys/class/backlight/acpi_video0'
+	# changing group of 'brightness' from root to kirst
+	# this file contains a number ranging from 0-100 representing brightness percentage
+	- sudo chgrp -v kirst brightness
+	# adding write permissions to 'kirst' group for 'brightness' file
+	- sudo chmod 664 brightness
+
+	# ALL of this so that:
+	- $ echo 50 > /sys/class/backlight/acpi_video0/brightness
+	# will change the brightness to 50%...now to automate it and make a custom command for it
+		# it shall be called 'sun'
+DONE - # create udev rule and copy it to /lib/udev/rules.d/
+reload udev (or reboot machine)
+	- sudo udevadm control --reload-rules && sudo service udev restart && sudo udevadm trigger
+# test udev rule
+	# applying udev rules somehow broke power management brightness interface...like wtf???
+	# after rebooting once more it came back to normal...ok like wtf again, but in a good way??
+
+# script to make all these changes and copy sun to /usr/bin
+
+=-=-=-=-=-=-=-=-=-=
+	PROGRAMS
+=-=-=-=-=-=-=-=-=-=
+git
+gh
+code
+virtualbox + extension
+oiw - open in workspace
+vlc

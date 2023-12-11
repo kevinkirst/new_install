@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Exec=oiw 2 gnome-terminal --full-screen
+NoDisplay=false
+Hidden=false
+Name=Open In Workspace - terminal
+Comment=Open gnome-terminal in workspace 2 - terminal
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=3
