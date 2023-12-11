@@ -1,0 +1,79 @@
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+		a game maybe
+		   TO DO
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+- turn based battle
+- dmg is calculated based on DMG_BASE, distance to target and dmg modifier for said distance, then crit chance is calculated, critical damage is +200%
+
+		DMG_BASE * DMG_RANGE_MOD * CRIT
+
+- .weapon files
+- .armour files
+- .enemy files
+
+- basic weapon
+	type=
+		melee
+			NAME=flacid_sword # equipment name
+			TYPE=melee #equipment type
+			DMG_BASE=1 #base damage
+			CRIT_BASE=5 # critical dmg base chance percentage
+			DMG_CLOSE=50 #close range modifier percentage
+			DMG_MID=0 #mid range modifier percentage
+			DMG_LONG=-80 #long range modifier percentage
+			DIST_CLOSE=0 #start of close range for this weapon in meters
+			DIST_MID=2 #start ofmid range for this weapon in meters
+			DIST_LONG=5 #start of long range for this weapon in meters
+			DIST_MAX=7 #max distance, weapon reach
+		ranged
+			NAME=flacid_bow # equipment name
+			TYPE=ranged #equipment type
+			DMG_BASE=1 #base damage
+			CRIT_BASE=5 # critical dmg base chance percentage
+			DMG_CLOSE=-90 #close range modifier percentage
+			DMG_MID=20 #mid range modifier percentage
+			DMG_LONG=0 #long range modifier percentage
+			DIST_CLOSE=0 #start of close range for this weapon in meters
+			DIST_MID=3 #start ofmid range for this weapon in meters
+			DIST_LONG=7  #start of long range for this weapon in meters
+			DIST_MAX=15 #max distance, weapon reach
+	apply dmg modifier based on type
+	create 1 template of each melee and ranged to test
+
+- basic armour
+	type=
+		head
+			NAME=a_hat # equipment name
+			TYPE=armour_head #equipment type
+			PROT_BASE=1 #base protection
+			PROT_MELEE=5 #melee protection modifier percentage
+			PROT_RANGED=-5 #ranged protection modifier percentage
+		chest
+			NAME=a_plate # equipment name
+			TYPE=armour_chest #equipment type
+			PROT_BASE=1 #base protection
+			PROT_MELEE=5 #melee protection modifier percentage
+			PROT_RANGED=-5 #ranged protection modifier percentage
+		legs
+			NAME=a_pants # equipment name
+			TYPE=armour_legs #equipment type
+			PROT_BASE=1 #base protection
+			PROT_MELEE=5 #melee protection modifier percentage
+			PROT_RANGED=-5 #ranged protection modifier percentage
+		feet
+			NAME=a_boot # equipment name
+			TYPE=armour_feet #equipment type
+			PROT_BASE=1 #base protection
+			PROT_MELEE=5 #melee protection modifier percentage
+			PROT_RANGED=-5 #ranged protection modifier percentage
+		cape
+			NAME=a_cape # equipment name
+			TYPE=armour_cape #equipment type
+			PROT_BASE=1 #base protection
+			PROT_MELEE=0 #melee protection modifier percentage
+			PROT_RANGED=5 #ranged protection modifier percentage
+
+- basic enemy
+	determine if close or far
+	can move
